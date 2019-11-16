@@ -1,0 +1,38 @@
+<!-- webpage for for students -->
+<html>
+<head> 
+    <title>Mark your attendance</title>
+</head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div>
+                    {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} 
+        Enter Your Details:
+        <form method="POST", action="">
+            {{ form.hidden_tag() }}
+            <div>
+                <div>
+                    {{ form.name.label() }}
+                    {{ form.name() }}
+                </div>
+                <div>
+                    {{ form.rollnum.label() }}
+                    {{ form.rollnum() }}
+                </div>
+                <div>
+                    {{ form.mac.label() }}
+                    {{ form.mac() }}
+                </div>
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </body>
+</html>
